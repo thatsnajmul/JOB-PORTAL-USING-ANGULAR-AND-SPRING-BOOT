@@ -1,0 +1,24 @@
+<div class="container">
+    
+</div>
+    <div class="search-container m-5">
+        <input class="form-control mr-2 mt-2 p-2" type="search" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Job title or keyword" aria-label="Search">
+    </div>
+    
+    <div class="job-list m-5" *ngIf="jobs.length > 0">
+        <div *ngFor="let job of jobs">
+            <div class="scrollable-container">
+                <a (click)="openJobDetails(job.id)" target="_blank">
+                    <h5>{{ job.title }}</h5>
+                    <p>{{ job.companyName }} - {{ job.location }}</p>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div *ngIf="jobs.length === 0 && searchTerm.trim().length > 0">
+        <p class="m-5">No jobs found.</p>
+    </div>
+
+

@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+.hero-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+.job-listing {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.job-listing img {
+    max-width: 300px;
+    margin-right: 20px;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 30px 0;
+}
+
+.footer a {
+    color: white;
+}

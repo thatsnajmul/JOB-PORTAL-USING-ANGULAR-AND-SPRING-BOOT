@@ -1,0 +1,78 @@
+<div class="container">
+    <h2>Job Listings</h2>
+
+    <input 
+  type="text" 
+  placeholder="Search Jobs" 
+  (keyup)="searchJobs($event)" 
+  class="form-control mb-3" 
+/>
+
+<ul *ngIf="searchResults.length > 0" class="list-group">
+  <li *ngFor="let job of searchResults" class="list-group-item">
+    <a [routerLink]="['/job', job.id]">{{ job.title }} (ID: {{ job.id }})</a>
+  </li>
+</ul>
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Company</th>
+          <th>Type</th>
+          <th>Location</th>
+          <th>Experience</th>
+          <th>Salary</th>
+          <th>Category</th>
+          <th>Deadline</th>
+          <th>Image</th>
+          <th>CV</th>
+
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of jobs">
+          <td>{{ job.title }}</td>
+          <td>{{ job.companyName }}</td>
+          <td>{{ job.jobType }}</td>
+          <td>{{ job.location }}</td>
+          <td>{{ job.experience }}</td>
+          <td>{{ job.minSalary }} - {{ job.maxSalary }}</td>
+          <td>{{ job.category }}</td>
+          <td>{{ job.deadline }}</td>
+          <td>
+            <img [src]="job.companyImageUrl" alt="Company Image" width="50" height="50">
+          </td>
+          <td>
+            <a (click)="openOrDownloadPdf(job.cvDownloadUrl)" class="btn btn-link">Download CV</a>
+          </td>
+
+          <td>
+            <td>
+              <a [routerLink]="['/jobs/edit', job.id]" class="btn btn-warning btn-sm">Edit</a>
+              <button *ngIf="user?.role === Role.ADMIN" (click)="deleteJob(job.id)" class="btn btn-danger btn-sm">Delete</button>
+            </td>
+            
+        </tr>
+      </tbody>
+    </table>
+    <nav>
+      <ul class="pagination">
+        <li class="page-item" [class.disabled]="currentPage === 0">
+          <a class="page-link" (click)="currentPage = currentPage - 1; getUserEmailAddress()">Previous</a>
+        </li>
+        <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="i === currentPage">
+          <a class="page-link" (click)="currentPage = i; getUserEmailAddress()">{{ i + 1 }}</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+          <a class="page-link" (click)="currentPage = currentPage + 1; getUserEmailAddress()">Next</a>
+        </li>
+
+
+
+      </ul>
+    </nav>
+  </div>
+  

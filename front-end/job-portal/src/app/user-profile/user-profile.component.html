@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar for larger screens -->
+    <nav class="col-md-3 d-none d-md-block bg-dark text-white sidebar">
+      <div class="sidebar-sticky p-4">
+        <h3 class="text-center">User Details</h3>
+        <ul class="nav flex-column mt-4">
+          <li class="nav-item mb-3">
+            <a *ngIf="user?.role === Role.ADMIN || user?.role === Role.EMPLOYER || user?.role === Role.JOB_SEEKER" class="nav-link text-white" (click)="loadContent('profile')">
+              <i class="fas fa-user-shield"></i> Profile
+            </a>
+            <a *ngIf="user?.role === Role.ADMIN || user?.role === Role.EMPLOYER" class="nav-link text-white" (click)="loadContent('job-applications')">
+              <i class="fas fa-user-shield"></i> View All Job Applications
+            </a>
+            <a *ngIf="user?.role === Role.ADMIN || user?.role === Role.EMPLOYER" class="nav-link text-white" (click)="loadContent('job-posts')">
+              <i class="fas fa-user-shield"></i> View All Job Post
+            </a>
+            <a *ngIf="user?.role === Role.ADMIN || user?.role === Role.EMPLOYER" class="nav-link text-white" (click)="loadContent('job-add')">
+              <i class="fas fa-user-shield"></i> Add Job
+            </a>           
+          </li>
+          <li class="nav-item mb-3">
+            <a *ngIf="user?.role === Role.JOB_SEEKER" class="nav-link text-white" (click)="loadContent('jobseeker')">
+              <i class="fas fa-briefcase"></i> View CV
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content area -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-9 px-4 main-content bg-light py-5">
+      <ng-container [ngSwitch]="currentSection">
+        <div *ngSwitchCase="'profile'">
+          <!-- <h2>Add Job</h2> -->
+          <app-profile></app-profile>
+        </div>
+        <div *ngSwitchCase="'job-applications'">
+          <!-- <h2>View All Application</h2> -->
+          <app-application-list></app-application-list> 
+        </div>
+        <div *ngSwitchCase="'job-posts'">
+          <!-- <h2>Viwe all Job Posts</h2> -->
+          <app-job-list></app-job-list>
+        </div>
+        <div *ngSwitchCase="'job-add'">
+          <!-- <h2>Add Job</h2> -->
+          <app-job-form></app-job-form>
+        </div>
+        
+        <!-- Default content -->
+        <div *ngSwitchDefault>
+          <h2>Welcome, {{ user?.username }}!</h2>
+          <p>Select a section to view more details.</p>
+        </div>
+      </ng-container>
+    </main>
+  </div>
+</div>

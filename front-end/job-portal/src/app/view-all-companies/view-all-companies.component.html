@@ -1,0 +1,12 @@
+<div class="container my-5">
+    <h4 class="text-center">All Company List</h4>
+    <div class="row">
+        <div class="col-md-1 col-sm-6 p-2" *ngFor="let job of jobs | slice:0:06">
+                <div class="card p-2">
+                    <img [src]="job.companyImageUrl" class="card-img-top" alt="Company Image">
+                    <p class="card-text text-center">{{ job.companyName }}</p>
+                </div>
+        
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+export interface Userd {
+  id: number;
+  name: string;
+  email: string;
+  cell: string;
+  address: string;
+  dob: Date;
+  gender: string;
+  image: string;
+  active: boolean;
+  isLock: boolean;
+  role: string;  // Assuming 'Role' is a string in the backend
+}

@@ -1,0 +1,33 @@
+<nav class="navbar p-3 navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" routerLink="home">Job Portal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a routerLink="home" class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="job-list-view" class="nav-link" href="#">Jobs</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="view-all-companies" class="nav-link" href="#">Companies</a>
+            </li>
+            
+            <li class="nav-item">
+                <a routerLink="login" class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="register" class="nav-link" href="#">Register</a>
+            </li>
+            <li>
+                <a *ngIf="user?.role === Role.ADMIN ||user?.role === Role.EMPLOYER || user?.role === Role.JOB_SEEKER" href="#" routerLink="user-profile"><i class="fa fa-user-circle"></i></a>
+            </li>
+            <li class="nav-item">
+                <button *ngIf="user?.role === Role.ADMIN ||user?.role === Role.EMPLOYER || user?.role === Role.JOB_SEEKER" class="btn btn-outline-success" type="button" (click)="authService.logout()">Logout</button>
+            </li>
+        </ul>
+    </div>
+</nav>

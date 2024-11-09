@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div *ngIf="job" class="card shadow-lg">
+      <div class="card-header bg-primary text-white text-center py-4">
+        <h3 class="mb-0">{{ job.title }}</h3>
+      </div>
+      
+      <div class="card-body p-4">
+        
+        <div class="row mb-4">
+          <div class="col-md-8 m-10 p-5">
+            <h1 class="mb-2">Company: {{ job.companyName }}</h1>
+            <img [src]="job.companyImageUrl" alt="Company Image" class="p-5 m-10 img-fluid border border-primary" width="300" height="150">
+            <p><strong>Type:</strong> {{ job.jobType }}</p>
+            <p><strong>Location:</strong> {{ job.location }}</p>
+            <p><strong>Experience:</strong> {{ job.experience }} years</p>
+            <p><strong>Salary:</strong> {{ job.minSalary | currency }} - {{ job.maxSalary | currency }}</p>
+            <p><strong>Category:</strong> {{ job.category }}</p>
+            <p><strong>Deadline:</strong> {{ job.deadline | date: 'MMM d, y' }}</p>
+
+            <div class="row">
+                <div class="col-md-12">
+                  <p class="mb-4"><strong>Description:</strong></p>
+                  <p class="text-justify text-muted">{{ job.jobDescription }}</p>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <a routerLink="/create-job-application" class="btn btn-outline-primary btn-lg mt-3">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

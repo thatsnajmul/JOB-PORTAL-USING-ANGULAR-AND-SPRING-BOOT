@@ -1,0 +1,47 @@
+<div class="container">
+    <h2>Job Applications</h2>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Applicant Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Experience</th>
+          <th>Salary</th>
+          <th>Job ID</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let application of jobApplications">
+          <td>{{ application.applicantName }}</td>
+          <td>{{ application.applicantEmail }}</td>
+          <td>{{ application.applicantPhone }}</td>
+          <td>{{ application.experience }} years</td>
+          <td>{{ application.minSalary }} - {{ application.maxSalary }}</td>
+          <td>{{ application.jobId }}</td>
+          <td>
+            <button (click)="editJobApplication(application.id)" class="btn btn-warning btn-sm">Edit</button>
+            <button (click)="deleteJobApplication(application.id)" class="btn btn-danger btn-sm">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Pagination Controls -->
+    <nav>
+      <ul class="pagination">
+        <li class="page-item" [class.disabled]="currentPage === 0">
+          <a class="page-link" (click)="onPageChange(currentPage - 1)">Previous</a>
+        </li>
+        <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="i === currentPage">
+          <a class="page-link" (click)="onPageChange(i)">{{ i + 1 }}</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+          <a class="page-link" (click)="onPageChange(currentPage + 1)">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  

@@ -1,0 +1,104 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Edit Job' : 'Add New Job' }}</h2>
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input id="title" formControlName="title" class="form-control" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="companyName">Company Name</label>
+          <input id="companyName" formControlName="companyName" class="form-control" />
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="jobType">Job Type</label>
+          <input id="jobType" formControlName="jobType" class="form-control" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input id="location" formControlName="location" class="form-control" />
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="experience">Experience</label>
+          <input id="experience" formControlName="experience" type="number" class="form-control" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="minSalary">Minimum Salary</label>
+          <input id="minSalary" formControlName="minSalary" type="number" class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="maxSalary">Maximum Salary</label>
+          <input id="maxSalary" formControlName="maxSalary" type="number" class="form-control" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input id="category" formControlName="category" class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="deadline">Deadline</label>
+          <input id="deadline" formControlName="deadline" type="date" class="form-control" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="companyImageUrl">Company Image URL</label>
+          <input id="companyImageUrl" formControlName="companyImageUrl" class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="jobDescription">Job Description</label>
+          <textarea id="jobDescription" formControlName="jobDescription" class="form-control"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="cvDownloadUrl">CV Download URL</label>
+          <input id="cvDownloadUrl" formControlName="cvDownloadUrl" class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update Job' : 'Add Job' }}</button>
+    </div>
+    
+  </form>
+</div>
+
+  

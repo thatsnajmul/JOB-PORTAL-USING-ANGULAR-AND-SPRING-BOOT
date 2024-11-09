@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <h2>Job Application Form</h2>
+    <form [formGroup]="jobapplicationForm" (ngSubmit)="onSubmit()">
+      <!-- Applicant-specific details -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" id="name" class="form-control" formControlName="applicantName" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" id="email" class="form-control" formControlName="applicantEmail" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" id="phone" class="form-control" formControlName="applicantPhone" required>
+      </div>
+      <div class="mb-3">
+        <label for="resume" class="form-label">Resume (URL)</label>
+        <input type="text" id="resume" class="form-control" formControlName="resumeUrl" required>
+      </div>
+  
+      <!-- Job-related details -->
+      <div class="mb-3">
+        <label for="experience" class="form-label">Experience (Years)</label>
+        <input type="number" id="experience" class="form-control" formControlName="experience" required>
+      </div>
+      <div class="mb-3">
+        <label for="minSalary" class="form-label">Minimum Salary</label>
+        <input type="number" id="minSalary" class="form-control" formControlName="minSalary" required>
+      </div>
+      <div class="mb-3">
+        <label for="maxSalary" class="form-label">Maximum Salary</label>
+        <input type="number" id="maxSalary" class="form-control" formControlName="maxSalary" required>
+      </div>
+      <div class="mb-3">
+        <label for="coverLetter" class="form-label">Cover Letter</label>
+        <textarea id="coverLetter" class="form-control" formControlName="coverLetter" rows="4" required></textarea>
+      </div>
+  
+      <!-- Job ID -->
+      <div class="mb-3">
+        <label for="jobId" class="form-label">Job Tracking ID</label>
+        <input type="text" id="jobId" class="form-control" formControlName="jobId" required>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Submit Application</button>
+    </form>
+  </div>
+  
+  
+
